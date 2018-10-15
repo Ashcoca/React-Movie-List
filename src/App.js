@@ -41,13 +41,13 @@ class App extends Component {
       this.setState({
         movies: movies
       });
-      //now we reset the form
-      newMovie.classList.remove("is-danger")
-    } else {
-      //if the input doesn't have a value, make the border red since it's req
-      newMovie.classList.add("is-danger");
     }
   }
+
+  //add remove item fn
+  // removeItem(item)
+  //put list into array
+
 
   render() {
     return (
