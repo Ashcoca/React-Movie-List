@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import './MovieList.js';
-
-
-
-//map 
+// import Movies from './MovieList.js';
 
 
 
@@ -41,13 +37,11 @@ class App extends Component {
       this.setState({
         movies: movies
       });
+
+      //reset form
+      form.reset();
     }
   }
-
-  //add remove item fn
-  // removeItem(item)
-  //put list into array
-
 
   render() {
     return (
@@ -60,13 +54,32 @@ class App extends Component {
         </div>
         <div className = "movies-container">
           <h1 className ="title">Movie List</h1>
-              {this.state.movies.map((item) => {
-                return <div className="movies" key={item.title}>{item.title}</div>
-              })}
+            <Movies items = {this.state.movies}/>
         </div>
       </div>
     );
   }
 }
+
+class Movies extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        
+      }
+  }
+
+  render() {
+    return (
+      <div>
+        <ul>
+            {this.state.movies.map((item) => {
+              return <li className="movies" key={item.title}>{item.title}</li>
+            })}
+        </ul>
+      </div>
+    )
+  }
+};
 
 export default App;
