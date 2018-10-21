@@ -19,7 +19,7 @@ class Search extends Component {
                 ref={input => this.search = input}
                 onChange={this.handleInputChange}
                 />
-                <p>{this.state.query}</p>)
+                {/* <p>{this.state.query}</p> */}
             </form>
         )
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-// import Movies from './MovieList.js';
+import Movies from './MovieList.js';
+import Search from './Search.js';
 
 
 
@@ -14,7 +14,7 @@ class App extends Component {
         {title: 'The Neverending Story'},
         {title: 'Willow'},
         {title: 'Surf Ninjas'},
-        {title: 'Winston Checks In'},
+        {title: 'Dunston Checks In'},
       ]
     };
     this.addItem = this.addItem.bind(this);
@@ -30,7 +30,7 @@ class App extends Component {
     const form = document.getElementById('add-movie');
 
     //if our form is not empty
-    if(newMovie.value != "") {
+    if(newMovie.value !== "") {
       //add the new item to the end of our list
       movies.push({title : newMovie.value});
       //then we use this to set the state for our list
@@ -40,8 +40,11 @@ class App extends Component {
 
       //reset form
       form.reset();
+
     }
   }
+
+  //since we call Movies with items
 
   render() {
     return (
@@ -56,30 +59,12 @@ class App extends Component {
           <h1 className ="title">Movie List</h1>
             <Movies items = {this.state.movies}/>
         </div>
+        <Search filter = {this.state.movies}/>
       </div>
     );
   }
 }
 
-class Movies extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-        
-      }
-  }
 
-  render() {
-    return (
-      <div>
-        <ul>
-            {this.state.movies.map((item) => {
-              return <li className="movies" key={item.title}>{item.title}</li>
-            })}
-        </ul>
-      </div>
-    )
-  }
-};
 
 export default App;
